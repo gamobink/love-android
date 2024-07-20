@@ -6,7 +6,8 @@ plugins {
 
 android {
     namespace "org.love2d.android"
-    ndkVersion "26.1.10909125"
+    //ndkVersion "26.1.10909125"
+    ndkPath = "C:\\Library\\android-ndk-r26d"
 
     defaultConfig {
         applicationId project.properties["app.application_id"]
@@ -30,7 +31,8 @@ android {
 
         ndk {
             //noinspection ChromeOsAbiSupport
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+            //abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+            abiFilters 'arm64-v8a'
             debugSymbolLevel 'full'
         }
 
@@ -158,13 +160,15 @@ android {
     packagingOptions {
         jniLibs {
             excludes += [
-                'lib/armeabi-v7a/libOpenSLES.so',
+                //'lib/armeabi-v7a/libOpenSLES.so',
                 'lib/arm64-v8a/libOpenSLES.so',
-                'lib/x86/libOpenSLES.so',
-                'lib/x86_64/libOpenSLES.so'
+                //'lib/x86/libOpenSLES.so',
+                //'lib/x86_64/libOpenSLES.so'
             ]
         }
     }
+    compileSdk 34
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {
